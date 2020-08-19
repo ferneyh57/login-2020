@@ -7,10 +7,10 @@
   $contra = md5($_POST['pass']);
   $mysql->conectar();
 
-  $Consultar = $mysql->efectuarConsulta("select login.validacion 
+  $Consultar = $mysql->efectuarConsulta("select login.validacion.id
   from login.validacion 
-  where login.validacion.email = ".$email." 
-  and login.validacion.password = ".$contra."  ");
+  where login.validacion.email = '".$email."'" 
+ );
             
  
   if(!empty($Consultar)){
@@ -19,6 +19,7 @@
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){
              
+         
             header( "refresh:3;url=login.php" ); 
            
           }
