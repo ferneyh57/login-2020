@@ -9,7 +9,7 @@
 
   $Consultar = $mysql->efectuarConsulta("select login.validacion.id
   from login.validacion 
-  where login.validacion.email = '".$email."'" 
+  where login.validacion.password ='".$contra."' and login.validacion.email = '".$email."' " 
  );
             
  
@@ -19,7 +19,7 @@
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){
              
-         
+            
             header( "refresh:3;url=login.php" ); 
            
           }
