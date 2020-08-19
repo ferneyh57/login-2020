@@ -19,8 +19,8 @@
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){
              
-            header("location: login.php");
-            die();
+            header( "refresh:3;url=login.php" ); 
+           
           }
           
           }
