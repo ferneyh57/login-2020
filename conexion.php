@@ -1,11 +1,16 @@
 <?php
+    if(isset($_POST['email'])   && !empty($_POST['email'])
+    && isset($_POST['pass']) && !empty($_POST['pass'] )){
   require_once 'MySQL.php';
   $mysql = new MySQL;
   $email = $_POST['email'];
   $contra = md5($_POST['pass']);
   $mysql->conectar();
 
-  $Consultar = $mysql->efectuarConsulta("select");
+  $Consultar = $mysql->efectuarConsulta("select login.validacion 
+  from login.validacion 
+  where login.validacion.email = ".$email." 
+  and login.validacion.password = ".$contra."  ");
             
  
   if(!empty($Consultar)){
@@ -16,5 +21,11 @@
              
             header("location: login.php");
             die();
+          }
+          
+          }
+          
+          }
+          
           }
   ?>
