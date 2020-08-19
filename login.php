@@ -1,19 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    link
-    <title>Document</title>
+  <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="global.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
 </head>
+
 <body>
-    <form method="POST" action=""></form>
-    <label for="">Usuario</label>
-    <input type="user">
-    <div></div>
-    <label for="">Contraseña</label>
-    <input type="password">
-  <input type="submit">
+  <section class="container-fluid bg">
+    <section class="row justify-content-center">
+      <section class="col-12 col-sm-6 col-md-3">
+      <form class="form-container">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+      </section>
+    </section>
+  </section>
+  
+
+  <script src="bootstrap-4.5.2-dist/js/bootstrap.js"></script>
 </body>
+
 </html>
