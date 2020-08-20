@@ -1,17 +1,18 @@
 <?php
+$mysqli = new mysqli("localhost", "root", "", "login");
     if(isset($_POST['email'])   && !empty($_POST['email'])
     && isset($_POST['pass']) && !empty($_POST['pass'] )){
   require_once 'MySQL.php';
   $mysql = new MySQL;
-  $email = $_POST['email'];
-  $contra = md5($_POST['pass']);
+  $email = $mysqli -> real_escape_string($_POST['email']);
+  $contra = $mysqli -> real_escape_string(md5($_POST['pass']));
   $mysql->conectar();
 
   $Consultar = $mysql->efectuarConsulta("select login.validacion.id
   from login.validacion 
   where login.validacion.password ='".$contra."' and login.validacion.email = '".$email."' " 
  );
-            
+        
  
   if(!empty($Consultar)){
       

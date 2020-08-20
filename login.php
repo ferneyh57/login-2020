@@ -17,7 +17,7 @@
       <form class="form-container" method="post" action="conexion.php">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
