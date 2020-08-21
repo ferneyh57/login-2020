@@ -10,7 +10,7 @@
   <title>Login</title>
 </head>
 
-<body>
+<body >
   <section class="container-fluid bg">
     <section class="row justify-content-center">
       <section class="col-12 col-sm-6 col-md-3">
@@ -18,7 +18,7 @@
       
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" >
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">

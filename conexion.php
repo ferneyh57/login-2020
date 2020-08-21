@@ -1,7 +1,8 @@
 <?php
 $mysqli = new mysqli("localhost", "root", "", "login");
 
-
+$validar=0;
+$campos=2;
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
   if( isset($_POST['sub'])   && !empty($_POST['sub']))
@@ -32,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){
              
-            $validar=true;
+            
+            $validar++;
              
             
           }
@@ -41,12 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
           }
           
-          if($validar=true)
+          if($validar==$campos)
           {
             echo "bienvenido";
             header( "refresh:3;url=login.php" );
           }
-          else if($validar=false){
+          else {
             echo "error, email o contraseña invalida";
             header( "refresh:3;url=login.php" ); 
           }
