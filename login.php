@@ -14,7 +14,8 @@
   <section class="container-fluid bg">
     <section class="row justify-content-center">
       <section class="col-12 col-sm-6 col-md-3">
-      <form class="form-container" method="post" action="conexion.php">
+      <form class="form-container" method="POST"action="conexion.php">
+      
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -25,11 +26,12 @@
     <input type="password" class="form-control" id="pass" name="pass">
   </div>
   <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="check" name="check" required>
+    <input type="checkbox" class="form-check-input"  name="check" >
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+  <input type="submit" class="btn btn-primary btn-block" name="sub"></input>
 </form>
+
       </section>
     </section>
   </section>
