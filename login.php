@@ -14,7 +14,7 @@
   <section class="container-fluid bg">
     <section class="row justify-content-center">
       <section class="col-12 col-sm-6 col-md-3">
-      <form class="form-container" method="POST"action="conexion.php">
+      <form class="form-container" method="POST"action="">
       
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -29,14 +29,14 @@
     <input type="checkbox" class="form-check-input"  name="check" >
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <input type="submit" class="btn btn-primary btn-block" name="sub"></input>
+  <button  type="submit" class="btn btn-primary" onclick="funcion()">Submit</button>
 </form>
 
       </section>
     </section>
   </section>
   
-
+  <script src="encriptar.js"></script>
   <script src="bootstrap-4.5.2-dist/js/bootstrap.js"></script>
 </body>
 
