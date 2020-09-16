@@ -3,12 +3,12 @@ $mysqli = new mysqli("localhost", "root", "", "login");
 
 $validar=0;
 $campos=2;
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-  if( isset($_POST['sub'])   && !empty($_POST['sub']))
-  {
 
   
+  if( isset($_POST['check'])   && !empty($_POST['check']))
+  {
+
+    echo "entro";
     if(isset($_POST['email'])   && !empty($_POST['email'])
     && isset($_POST['check'])   && !empty($_POST['check'])
     && isset($_POST['pass']) && !empty($_POST['pass'] )){
@@ -52,14 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             echo "error, email o contraseña invalida";
             header( "refresh:3;url=login.php" ); 
           }
-          }
-          else{
-            echo "error en el checkbox";
-            header( "refresh:3;url=login.php" ); 
-          }
-        }
-        }
+          
+
+        
   
+  }
+  
+  }
         
           
   ?>

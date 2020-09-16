@@ -1,4 +1,12 @@
 
+#cuadricula {
+    /*transforma la #cuadricula en un contenedor grid:*/
+    display: grid;
+    /*esto genera 3 columnas iguales cuya anchura es 1fr */
+    grid-template-columns:1fr 1fr 1fr;
+    /*establece el espaciado entre los ítems del grid*/
+    grid-gap:1em;
+}
 
 .form-container{
     position:absolute;

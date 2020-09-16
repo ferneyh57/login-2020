@@ -3,7 +3,8 @@
 
 <head>
   <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css">
-  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,32 +15,67 @@
   <section class="container-fluid bg">
     <section class="row justify-content-center">
       <section class="col-12 col-sm-6 col-md-3">
-      <form class="form-container" method="POST"action="">
-      
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" >
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass">
-  </div>
-    <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass">
-  </div>
-    <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="pass" name="pass">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input"  name="check" >
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button   type="button" class="btn btn-primary" onclick="funcion()">Submit</button>
-</form>
 
+
+      <form class="form-container" method="POST"action="">
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="exampleInputNombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required="">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="exampleInputApellido">Apellido</label>
+        <input type="text" class="form-control" id="Apellido" name="Apellido" required="">
+      </div>
+  </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">User</label>
+        <input type="text" class="form-control" id="User" name="User" required>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="TipoTarjeta"></label>
+            <select class="form-control" > 
+              <option selected>Selecciona la Tarjeta</option>
+              <option value="V">Visa</option>
+              <option value="MC">Master Card</option>
+              <option value="DN">Diners</option>
+              <option value="AE" >American Express</option>
+            </select>
+          </div>
+
+        <div class="form-group col-md-6" >
+          <label for="exampleInputNtarjeta">Numero Tarjeta</label>
+          <input minlength="14" type="text" class="form-control" id="Ntarjeta" name="Ntarjeta" required pattern="[0-9]+">
+          <small id="NtarjetaHelp" class="form-text text-muted">debe ingresar solo numeros</small>
+        </div>
+      </div>
+
+
+      <div class="form-row">
+            <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Password</label>
+            <input minlength="4" maxlength="10" type="password" class="form-control" id="pass" name="pass" required>
+          </div>
+
+      <!--    <div class="form-group col-md-6 form-check">
+            <input type="checkbox" class="form-check-input"  name="check" >
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+        -->
+
+          <button   type="Submit" class="btn btn-primary">Submit</button>
+      </div>
+      
+    </form>
       </section>
     </section>
   </section>
