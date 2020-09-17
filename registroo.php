@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    //llamamos la clase
+  require_once 'MySQL.php';
+    //pasamos los valores de la clase a la variable
+  $mysql = new MySQL;
+      //realizamos la conexion
+  $mysql->conectar();
+//realizamos una consulta con los valores que vamos a utilizar
+  $tipotarjeta= $mysql->efectuarConsulta("SELECT 
+  bancoviernes.tipo_tarjeta.id, bancoviernes.tipo_tarjeta.tipo 
+  from bancoviernes.tipo_tarjeta");
+ 
+  ?>
 <head>
   <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/global.css">
@@ -20,12 +32,12 @@
       <form class="form-container" method="POST"action="">
   <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="exampleInputNombre">Nombre</label>
+        <label for="exampleInputNombre">Primer nombre</label>
         <input type="text" class="form-control" id="nombre" name="nombre" required="">
       </div>
 
       <div class="form-group col-md-6">
-        <label for="exampleInputApellido">Apellido</label>
+        <label for="exampleInputApellido">Primer apellido</label>
         <input type="text" class="form-control" id="Apellido" name="Apellido" required="">
       </div>
   </div>
@@ -33,7 +45,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">User</label>
@@ -41,22 +53,26 @@
       </div>
 
       <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="TipoTarjeta"></label>
-            <select class="form-control" > 
-              <option selected>Selecciona la Tarjeta</option>
-              <option value="V">Visa</option>
-              <option value="MC">Master Card</option>
-              <option value="DN">Diners</option>
-              <option value="AE" >American Express</option>
-            </select>
-          </div>
+      <div class="form-group col-md-6" >
+        <label class="col-form-label">Tipo tarjeta</label>
+        <select name="tipotarjeta" class="form-control" >
+        <!-- creamos un arreglo con los datos de tipo documento-->
+          <?php while ($resultado=mysqli_fetch_assoc($tipotarjeta)){?> 
+            <!-- mostramos los datos que tenemos en el areglo-->
+          <option value="<?php echo $resultado['id'] ?>"><?php echo $resultado['tipo'] ?></option>
+          <?php
+          }
+          ?>
+        </select>
 
-        <div class="form-group col-md-6" >
+      </div>
+      <div class="form-group col-md-6" >
           <label for="exampleInputNtarjeta">Numero Tarjeta</label>
           <input minlength="14" type="text" class="form-control" id="Ntarjeta" name="Ntarjeta" required pattern="[0-9]+">
-          <small id="NtarjetaHelp" class="form-text text-muted">debe ingresar solo numeros</small>
+          
         </div>
+      </div>
+
       </div>
 
 
