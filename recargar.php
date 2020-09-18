@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
     //llamamos la clase
   require_once 'MySQL.php';
     //pasamos los valores de la clase a la variable
@@ -8,9 +9,13 @@
       //realizamos la conexion
   $mysql->conectar();
 //realizamos una consulta con los valores que vamos a utilizar
-  $tipo_tarjeta= $mysql->efectuarConsulta("SELECT 
+  /*$tipo_tarjeta= $mysql->efectuarConsulta("SELECT 
   bancoviernes.tipo_tarjeta.id_tipo_tarjeta , bancoviernes.tipo_tarjeta.nombre_tarjeta
-  from bancoviernes.tipo_tarjeta");
+  from bancoviernes.tipo_tarjeta where id_usuario = ".$_SESSION['id']."");*/
+
+$tarjeta= $mysql->efectuarConsulta("SELECT 
+bancoviernes.usuario.numero_tarjeta 
+from bancoviernes.usuario where id_usuario = ".$_SESSION['id']."");
  
   ?>
 <head>
@@ -30,47 +35,30 @@
 
 
       <form class="form-container" method="POST"action="registro.php">
-  <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="exampleInputNombre">Primer nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" required="">
-      </div>
-
-      <div class="form-group col-md-6">
-        <label for="exampleInputApellido">Primer apellido</label>
-        <input type="text" class="form-control" id="Apellido" name="Apellido" required="">
-      </div>
-  </div>
+  
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+        <label for="exampleInputEmail1">cantidad</label>
+        <input type="number" class="form-control" id="cantidad" name="cantidad" aria-describedby="emailHelp" required>
         
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">User</label>
-        <input type="text" class="form-control" id="User" name="User" required>
-      </div>
+
 
       <div class="form-row">
-      <div class="form-group col-md-6" >
-        <label class="col-form-label">Tipo tarjeta</label>
+ 
+
+      </div>
+      <div class="form-group " >
+        <label class="col-form-label">tarjeta</label>
         <select name="tipotarjeta" class="form-control" >
         <!-- creamos un arreglo con los datos de tipo documento-->
-          <?php while ($resultado=mysqli_fetch_assoc($tipo_tarjeta)){?> 
+          <?php while ($resultado=mysqli_fetch_assoc($tarjeta)){?> 
             <!-- mostramos los datos que tenemos en el areglo-->
-          <option value="<?php echo $resultado['id_tipo_tarjeta'] ?>"><?php echo $resultado['nombre_tarjeta'] ?></option>
+          <option value="<?php echo $resultado['numero_tarjeta'] ?>"><?php echo $resultado['numero_tarjeta'] ?></option>
           <?php
           }
           ?>
         </select>
-
-      </div>
-      <div class="form-group col-md-6" >
-          <label for="exampleInputNtarjeta">Numero Tarjeta</label>
-          <input minlength="14" type="text" class="form-control" id="Ntarjeta" name="Ntarjeta" required pattern="[0-9]+">
-          
-        </div>
       </div>
 
       </div>
@@ -89,7 +77,7 @@
         -->
 
           <button   type="Submit" class="btn btn-primary">Submit</button>
-          <a href="login.html">Ingresar</a>
+          
       </div>
       
     </form>

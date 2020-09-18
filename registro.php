@@ -25,20 +25,20 @@ $contrasena = md5($_POST['pass']);
   $insertar= $mysql->efectuarConsulta("insert into 
   bancoviernes.usuario
     ( 
-    primer_nombre,
-    primer_apellido,
-    email,
-    userr,
-    
-    numero_tarjeta,
-    contra
+      bancoviernes.usuario.primer_nombre,
+      bancoviernes.usuario.primer_apellido,
+      bancoviernes.usuario.email,
+      bancoviernes.usuario.numero_identificacion,
+      bancoviernes.usuario.tipo_tarjeta_id,
+      bancoviernes.usuario.numero_tarjeta,
+      bancoviernes.usuario.contra
     ) 
     VALUES(   
-    '".$nombre. "', '" .$apellido. "','" .$email. "', '" .$User. "', '" .$numerot. "', '" .$contrasena. "' )"); 
+    '".$nombre. "', '" .$apellido. "','" .$email. "', '" .$User. "','" .$tipot. "', '" .$numerot. "', '" .$contrasena. "' )"); 
         
- 
+    
   if(!empty($Consultar)){
-      
+    
       if(mysqli_num_rows($Consultar) > 0){
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+session_start();
+  if(!isset($_SESSION['id'])){
+  session_destroy();
+  session_unset();
+  }
+  ?>
 <head>
   <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/global.css">
@@ -19,7 +26,7 @@
       
   <div class="form-group">
     <label for="exampleInputEmail1">User</label>
-    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" >
+    <input type="text" class="form-control" id="email" name="email" id="email" aria-describedby="emailHelp" >
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
@@ -30,7 +37,7 @@
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input"  name="check" >
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    <a href="registro.html">registrarse</a>
+    <a href="registroo.php">registrarse</a>
   </div>
 </div>
   <button   type="submit" class="btn btn-primary" onclick="funcion()">Submit</button>
@@ -47,3 +54,8 @@
 </body>
 
 </html>
+
+
+
+
+   

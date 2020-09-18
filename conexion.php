@@ -1,14 +1,12 @@
 <?php
 $mysqli = new mysqli("localhost", "root", "", "login");
 
-$validar=0;
-$campos=2;
+
 
   
-  if( isset($_POST['check'])   && !empty($_POST['check']))
-  {
+ 
 
-    echo "entro";
+    
     if(isset($_POST['email'])   && !empty($_POST['email'])
     && isset($_POST['check'])   && !empty($_POST['check'])
     && isset($_POST['pass']) && !empty($_POST['pass'] )){
@@ -21,9 +19,9 @@ $campos=2;
   $mysql->conectar();
 
   
-  $Consultar = $mysql->efectuarConsulta("select login.validacion.id
-  from login.validacion 
-  where login.validacion.password ='".$contra."' and login.validacion.email = '".$email."' " 
+  $Consultar = $mysql->efectuarConsulta("select bancoviernes.usuario.id_usuario,bancoviernes.usuario.primer_nombre,bancoviernes.usuario.primer_apellido,bancoviernes.usuario.contra
+  from bancoviernes.usuario
+  where bancoviernes.usuario.contra ='".$contra."'and bancoviernes.usuario.email = '".$email."' " 
  );
         
  
@@ -32,33 +30,45 @@ $campos=2;
       if(mysqli_num_rows($Consultar) > 0){
          
           while ($resultado = mysqli_fetch_assoc($Consultar)){
-             
             
-            $validar++;
-             
             
+            $id_usuario= $resultado["id_usuario"];
+            $contrasena= $resultado["contra"];
+            $primer_nombre= $resultado["primer_nombre"];
+            $primer_apellido= $resultado["primer_apellido"];
+
+
+
+
+
+
+           
+           header( "refresh:3;url=index.php" );
+            
+          }
+          session_start();//Inicio de sesion
+          $_SESSION['nombre']=$primer_nombre.' '.$primer_apellido;
+          $_SESSION['id']=$id_usuario;
+          $_SESSION['contrasena']=$contrasena;
+          
           }
 
-          }
-
-          }
-          
-          if($validar==$campos)
-          {
-            echo "bienvenido";
-            header( "refresh:3;url=login.php" );
-          }
-          else {
-            echo "error, email o contraseña invalida";
-            header( "refresh:3;url=login.php" ); 
-          }
-          
+   
+         
+            
+     
 
         
   
   }
   
-  }
+  
         
+        }
           
   ?>
+
+
+
+
+

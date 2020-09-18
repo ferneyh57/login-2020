@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+	session_start();
+	?>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,13 +25,15 @@
 
 			<div class="jumbotron">
 				<h2>
-					BIENVENIDO
+					BIENVENIDO  <?php
+	echo $_SESSION['nombre'];
+	?>
 				</h2>
 				<p>
 					Somos la pagina web mas sencilla y segura de cootecnova.
 				</p>
 				<p>
-					<a class="btn btn-primary btn-large" href="login.html">logout</a>
+					<a class="btn btn-primary btn-large" href="login.php">logout</a>
 				</p>
 			</div>
 		</div>
@@ -43,7 +48,7 @@
 				cargar dinero a la pagina miediante tu tarjeta.
 			</p>
 			<p>
-				<a class="btn" href="recargar.html">go »</a>
+				<a class="btn" href="recargar.php">go »</a>
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -54,7 +59,7 @@
 				Aqui se puede enviar dinero a otras personas que esten registradas en la pagina.
 			</p>
 			<p>
-				<a class="btn" href="enviar.html">go »</a>
+				<a class="btn" href="enviar.php">go »</a>
 			</p>
 		</div>
 		<div class="col-md-4">
