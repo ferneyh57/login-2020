@@ -70,7 +70,8 @@
 				Desde aqui podemos ver todos los datos de las transacciones que hemos hecho.
 			</p>
 			<p>
-				<a class="btn" href="#">go »</a>
+				<a class="btn" href="transacciones.php">ver usuarios registrados »</a>
+			
 			</p>
 		</div>
 	</div>
